@@ -23,7 +23,12 @@ const Signup = () => {
         navigate('/login');
       }
     } catch (err) {
-      setError(err.response?.data?.error || 'Failed to create account');
+      const errMsg = err.response?.data?.error;
+      if (Array.isArray(errMsg)) {
+        setError(errMsg.join(', '));
+      } else {
+        setError(errMsg || 'Failed to create account');
+      }
     }
   };
 

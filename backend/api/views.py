@@ -10,6 +10,9 @@ from .permissions import IsOwnerOrCollaboratorOrReadOnly
 from django.http import FileResponse
 from rest_framework.parsers import MultiPartParser, FormParser
 
+from django.contrib.auth.password_validation import validate_password
+from django.core.exceptions import ValidationError
+
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
     permission_classes = (AllowAny,)
@@ -24,6 +27,15 @@ class RegisterView(generics.CreateAPIView):
         
         if User.objects.filter(username=username).exists():
             return Response({"error": "Username already exists"}, status=status.HTTP_400_BAD_REQUEST)
+            
+        if email and User.objects.filter(email=email).exists():
+            return Response({"error": "Email already exists"}, status=status.HTTP_400_BAD_REQUEST)
+            
+        try:
+            temp_user = User(username=username, email=email)
+            validate_password(password, user=temp_user)
+        except ValidationError as e:
+            return Response({"error": e.messages}, status=status.HTTP_400_BAD_REQUEST)
         
         user = User.objects.create_user(username=username, password=password, email=email)
         return Response({"message": "User created successfully"}, status=status.HTTP_201_CREATED)
