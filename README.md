@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Convert Django App to Django REST Framework + React Full-Stack App
 
 This plan outlines the steps to build a modern React frontend and convert your existing Django application into a REST API backend to meet all your requirements.
@@ -71,3 +72,63 @@ We will create a new React application using Vite.
   - Test the upload flow with various file types.
   - Verify that a user cannot download, like, or comment without logging in.
   - Verify that the dashboard accurately reflects downloads made by other users.
+=======
+# ShareMe
+
+ShareMe is a full-stack web application featuring a Django backend and a React (Vite) frontend.
+
+## Project Structure
+
+- `backend/`: Django REST Framework backend API.
+- `frontend/`: React frontend built with Vite.
+
+## Prerequisites
+
+- Node.js (for frontend)
+- Python 3.x (for backend)
+
+## Setup Instructions
+
+### Backend Setup
+
+1. Navigate to the backend directory:
+   ```bash
+   cd backend
+   ```
+2. Create and activate a virtual environment (if not already done, there's a `venv` at the project root):
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows use: venv\Scripts\activate
+   ```
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Run database migrations:
+   ```bash
+   python manage.py migrate
+   ```
+5. Start the backend development server:
+   ```bash
+   python manage.py runserver
+   ```
+
+### Frontend Setup
+
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the frontend development server:
+   ```bash
+   npm run dev
+   ```
+
+## License
+
+This project is open-source and available under the [MIT License](LICENSE).
+>>>>>>> f609221 (completed)
