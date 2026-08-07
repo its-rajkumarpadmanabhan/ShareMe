@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Convert Django App to Django REST Framework + React Full-Stack App
 
 This plan outlines the steps to build a modern React frontend and convert your existing Django application into a REST API backend to meet all your requirements.
