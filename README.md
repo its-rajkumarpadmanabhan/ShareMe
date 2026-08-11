@@ -126,7 +126,4 @@ ShareMe is a full-stack web application featuring a Django backend and a React (
    npm run dev
    ```
 
-## License
 
-This project is open-source and available under the [MIT License](LICENSE).
->>>>>>> f609221 (completed)
